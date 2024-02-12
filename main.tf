@@ -30,7 +30,7 @@ resource "google_container_cluster" "my_cluster" {
   network = google_compute_network.vpc_network.id
   subnetwork = google_compute_subnetwork.vpc_subnet.id
   default_max_pods_per_node =8
-  deletion_protection = false
+  deletion_protection = true
   
 
   node_config {
