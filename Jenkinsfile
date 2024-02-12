@@ -31,7 +31,7 @@ pipeline {
             stage('Building Docker Image') {
                     steps {
                             script {
-                                    sh "docker build -t vengalarao7/flask:${env.BUILD_ID} ."
+                                    sh "docker build -t divija231/new:${env.BUILD_ID} ."
                             }
                     }
             }
@@ -41,8 +41,8 @@ pipeline {
                             script {
                                     echo "Push Docker Image"
                                     withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-                                        sh "docker login -u vengalarao7 -p ${dockerhub}"
-                                        sh "docker push vengalarao7/flask:${env.BUILD_ID}"
+                                        sh "docker login -u divija231 -p ${dockerhub}"
+                                        sh "docker push divija231/flask:${env.BUILD_ID}"
                                     }
                             }
                     }
