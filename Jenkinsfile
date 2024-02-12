@@ -42,7 +42,7 @@ pipeline {
                                     echo "Push Docker Image"
                                     withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
                                         sh "docker login -u divija231 -p ${dockerhub}"
-                                        sh "docker push divija231/flask:${env.BUILD_ID}"
+                                        sh "docker push divija231/new:${env.BUILD_ID}"
                                     }
                             }
                     }
