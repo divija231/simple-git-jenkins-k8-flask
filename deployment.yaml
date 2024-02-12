@@ -16,7 +16,7 @@ spec:
   spec:
    containers:
    - name: myapp
-     image: vengalarao7/dev:tagversion
+     image: divija231/new:tagversion
      ports:
      - containerPort: 5000
 
