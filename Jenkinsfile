@@ -1,13 +1,29 @@
 pipeline {
     agent any
         environment {
-                PROJECT_ID = 'developer-411817'
-                CLUSTER_NAME = 'cluster-1'
-                LOCATION = 'us-central1'
-                CREDENTIALS_ID = 'kubernetes'
+                PROJECT_ID = 'usecase1-413317'
+                CLUSTER_NAME = 'my-gke-cluster'
+                LOCATION = 'us-west1'
+                CREDENTIALS_ID = 'gke'
         }
 
     stages {
+         stage('Terraform Init') {
+            steps {
+                script {
+                    sh "terraform init"
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                script {
+                    sh "terraform apply -auto-approve"
+                }
+            }
+        }
+            
             stage('Building Docker Image') {
                     steps {
                             script {
