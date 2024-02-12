@@ -31,7 +31,7 @@ pipeline {
             stage('Building Docker Image') {
                     steps {
                             script {
-                                    sh "docker build -t divija231/flask:${env.BUILD_ID} ."
+                                    sh "docker build -t vengalarao7/flask:${env.BUILD_ID} ."
                             }
                     }
             }
