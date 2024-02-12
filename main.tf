@@ -5,7 +5,6 @@ resource "google_container_cluster" "my_cluster" {
 
   initial_node_count = 1
   network = "default"
-  default_max_pods_per_node =8
   deletion_protection = false
   
 
