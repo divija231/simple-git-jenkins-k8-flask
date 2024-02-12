@@ -4,7 +4,7 @@
 resource "google_container_cluster" "my_cluster" {
   name     = "my-gke-cluster"
   location = "us-west1"
-
+  deletion_protection = false
   initial_node_count = 2
   network = "default"
   node_config {
