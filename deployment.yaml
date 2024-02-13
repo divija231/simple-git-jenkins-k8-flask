@@ -16,7 +16,7 @@ spec:
   spec:
    containers:
    - name: myapp
-     image: divija231/flask:tagversion
+     image: divija231/new:tagversion
      ports: 
      - containerPort: 5000
 
