@@ -48,12 +48,16 @@ pipeline {
                     }
             }
 
-            stage('Deploying to K8s') {
-                    steps{
-                                sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deployment.yaml" 
-                                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-                            echo "Deployment successfully finished ..."
-                    }
-             }
+           stage('Deploying to K8s') {
+    steps {
+        script {
+            sh "cat deployment.yaml"  // Print the content of the modified deployment.yaml for debugging
+            sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deployment.yaml" 
+            step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+            echo "Deployment successfully finished ..."
+        }
+    }
+}
+
        }
 }
