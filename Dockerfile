@@ -2,7 +2,7 @@ FROM python:3.8-slim
 
 WORKDIR /app
 
-ENV OWNER vengalarao
+ENV OWNER divi
 
 COPY . /app
 
